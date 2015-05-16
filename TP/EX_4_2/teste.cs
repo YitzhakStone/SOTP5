@@ -3,7 +3,7 @@ using System.Threading;
 using System.Collections.Generic;
 class Program
 {
-    const int BuffSize = 3;
+    const int BuffSize = 10;
     char[] Buffer = new char[BuffSize];
     volatile int Avail = 0;
     int ValuesToProduce = 0;
@@ -11,6 +11,7 @@ class Program
     Mutex IsFull = new Mutex(true);
     Mutex IsEmpty = new Mutex(true);
     char[] entrada;
+    Random r = new Random();
 
     public Program(string str)
     {
@@ -23,12 +24,12 @@ class Program
         for (int i = 0; i < ValuesToProduce; i++)
         {
 
-            //Thread.Sleep(random);
+            Thread.Sleep(r.Next(5, 50) * 10);
 
             while (Avail == BuffSize)
             {
                 Console.WriteLine("\tEsperando consumidor\t\t");
-                IsFull.WaitOne(1000);
+                IsFull.WaitOne(r.Next(5, 50) * 10);
             }
 
             _Buffer.WaitOne();
@@ -54,12 +55,12 @@ class Program
         for (int i = 0; i < ValuesToProduce; i++)
         {
 
-            //Thread.Sleep(random);
+            Thread.Sleep(r.Next(5, 50) * 10);
 
             while (Avail < 1)
             {
                 Console.WriteLine("\tEsperando produtor\t\t");
-                IsEmpty.WaitOne(500);
+                IsEmpty.WaitOne(r.Next(5, 50) * 10);
             }
 
             _Buffer.WaitOne();
@@ -103,6 +104,7 @@ class Test
         c.Join();
 
         Console.WriteLine();
+        Console.ForegroundColor = ConsoleColor.Gray;
         Console.WriteLine("\nAcabou!");
         Console.ReadLine();
     }

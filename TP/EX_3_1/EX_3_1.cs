@@ -48,8 +48,10 @@ namespace EX_3_1
 
                 t1.Start();
                 t2.Start();
-                t1.Join();
-                t2.Join();
+                //t1.Join();
+                //t2.Join();
+
+                while(t1.IsAlive || t2.IsAlive){}
 
                 int soma = result_fat + result_fibo;
 
