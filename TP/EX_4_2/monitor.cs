@@ -109,11 +109,15 @@ class Test
 {
     static void Main(string[] args)
     {
-        
+
         Program program = new Program("YITZHAK STONE DE ANDRADE");
 
         Thread p = new Thread(new ThreadStart(program.Produce));
         Thread c = new Thread(new ThreadStart(program.Consume));
+
+        Thread k = new Thread(new ThreadStart(KeyPress));
+        k.Start();
+
         p.Start();
         c.Start();
 
@@ -124,4 +128,20 @@ class Test
         Console.WriteLine("\nAcabou!");
         Console.ReadLine();
     }
+
+    private static void KeyPress()
+    {
+
+        ConsoleKeyInfo k1 = new ConsoleKeyInfo('T', ConsoleKey.T, false, false, false);
+        ConsoleKeyInfo k2 = new ConsoleKeyInfo('t', ConsoleKey.T, false, false, false);
+        ConsoleKeyInfo k = Console.ReadKey(false);
+
+        if (k== k1 || k == k2)
+        {
+            Environment.Exit(1);
+        }
+
+
+    }
+
 }
