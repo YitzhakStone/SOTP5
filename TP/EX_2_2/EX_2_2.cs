@@ -1,10 +1,20 @@
-/*  
-
-Mateus Fernando			xxxxxx
-Vinicius Ponciano		xxxxxx
-Yitzhak Stone			478493
-
- */
+//
+// nome do programa: EX_2_2.cs
+//
+// programadores: nome dos alunos
+// Mateus Fernando          484555
+// Vinicius Ponciano        482955
+// Yitzhak Stone            478493
+// data: 30/04/2015
+// descricao:
+// programa pesquisa em um intervalo fechado de números inteiros
+// [MIN ... MAX] , ou seja, delimitado pelos valores inteiros MIN e MAX recebidos
+// através de parâmetros na linha de comando, e imprimir os números que são
+// simultaneamente ímpar, múltiplo de 7 e não múltiplo de 5. 
+// Exemplo (com: MIN = 2 e MAX = 10):
+// ENTRADA: EX_2_2.exe 2 10
+// SAÍDA: 7
+// 
 
 using System;
 using System.Collections.Generic;
@@ -22,8 +32,8 @@ namespace EX_2_2
             try
             {
 
-            	Console.WriteLine("{0}\t\t{1}", "xxxxxx", "Mateus Fernando");
-            	Console.WriteLine("{0}\t\t{1}", "xxxxxx", "Vinicius Ponciano");
+            	Console.WriteLine("{0}\t\t{1}", "484555", "Mateus Fernando");
+            	Console.WriteLine("{0}\t\t{1}", "482955", "Vinicius Ponciano");
             	Console.WriteLine("{0}\t\t{1}", "478493", "Yitzhak Stone");
 
             	Console.WriteLine();

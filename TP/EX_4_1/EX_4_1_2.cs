@@ -1,12 +1,15 @@
-/*  
+//
+// nome do programa: EX_4_1_2.cs
+//
+// programadores: nome dos alunos
+// Mateus Fernando          484555
+// Vinicius Ponciano        482955
+// Yitzhak Stone            478493
+// data: 30/04/2015
+// descricao: programa exemplo para simular
+// concorrencia.
+// 
 
-Mateus Fernando         xxxxxx
-Vinicius Ponciano       xxxxxx
-Yitzhak Stone           478493
-
- */
-
-// programa lock2.cs
 using System;
 using System.Threading;
 namespace lock2
@@ -62,8 +65,8 @@ namespace lock2
         static void Main()
         {
 
-            Console.WriteLine("{0}\t\t{1}", "xxxxxx", "Mateus Fernando");
-            Console.WriteLine("{0}\t\t{1}", "xxxxxx", "Vinicius Ponciano");
+            Console.WriteLine("{0}\t\t{1}", "484555", "Mateus Fernando");
+            Console.WriteLine("{0}\t\t{1}", "482955", "Vinicius Ponciano");
             Console.WriteLine("{0}\t\t{1}", "478493", "Yitzhak Stone");
 
             Console.WriteLine();

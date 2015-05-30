@@ -1,10 +1,15 @@
-/*  
-
-Mateus Fernando         xxxxxx
-Vinicius Ponciano       xxxxxx
-Yitzhak Stone           478493
-
- */
+//
+// nome do programa: EX_3_1.cs
+//
+// programadores: nome dos alunos
+// Mateus Fernando          484555
+// Vinicius Ponciano        482955
+// Yitzhak Stone            478493
+// data: 30/04/2015
+// descricao:
+// recebe um inteiro N e o programa calcula e exibe na tela o fatorial de N,
+// o N-esimo termo da sequencia de fibonacci e a soma desses resultados.
+// 
 
 using System;
 using System.Collections.Generic;
@@ -27,8 +32,8 @@ namespace EX_3_1
             try
             {
 
-                Console.WriteLine("{0}\t\t{1}", "xxxxxx", "Mateus Fernando");
-                Console.WriteLine("{0}\t\t{1}", "xxxxxx", "Vinicius Ponciano");
+                Console.WriteLine("{0}\t\t{1}", "484555", "Mateus Fernando");
+                Console.WriteLine("{0}\t\t{1}", "482955", "Vinicius Ponciano");
                 Console.WriteLine("{0}\t\t{1}", "478493", "Yitzhak Stone");
 
                 Console.WriteLine();
@@ -67,13 +72,13 @@ namespace EX_3_1
 
         }
 
-        static async void calculaFatorial(int n)
+        static void calculaFatorial(int n)
         {
             result_fat = fatorial(n);
             Console.WriteLine("Fatorial de {0} = {1}", n, result_fat);
         }
 
-        static async void calculaFibonacci(int n)
+        static void calculaFibonacci(int n)
         {
 
             result_fibo = fibonacci(n);

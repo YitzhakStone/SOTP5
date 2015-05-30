@@ -1,10 +1,16 @@
-/*  
-
-Mateus Fernando			xxxxxx
-Vinicius Ponciano		xxxxxx
-Yitzhak Stone			478493
-
- */
+//
+// nome do programa: EX_2_1.cs
+//
+// programadores: nome dos alunos
+// Mateus Fernando			484555
+// Vinicius Ponciano		482955
+// Yitzhak Stone			478493
+// data: 30/04/2015
+// descricao: calculadora básica (soma, subtracao, multiplicacao e divisao)
+// entrada(s: parametros na linha de comandos (lc), sendo:
+// primeiro operando, operador e segundo operando, separados por espaco
+// saida(s): exibe os valores de entrada e o resultado da operação.
+// 
 
 using System;
 using System.Collections.Generic;
@@ -22,8 +28,8 @@ namespace EX_2_1
             try
             {
 
-            	Console.WriteLine("{0}\t\t{1}", "xxxxxx", "Mateus Fernando");
-            	Console.WriteLine("{0}\t\t{1}", "xxxxxx", "Vinicius Ponciano");
+            	Console.WriteLine("{0}\t\t{1}", "484555", "Mateus Fernando");
+            	Console.WriteLine("{0}\t\t{1}", "482955", "Vinicius Ponciano");
             	Console.WriteLine("{0}\t\t{1}", "478493", "Yitzhak Stone");
 
             	Console.WriteLine();

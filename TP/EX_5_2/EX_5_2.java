@@ -1,17 +1,23 @@
-/*  
+//
+// nome do programa: EX_5_2.java
+//
+// programadores: nome dos alunos
+// Mateus Fernando          484555
+// Vinicius Ponciano        482955
+// Yitzhak Stone            478493
+// data: 30/04/2015
+// descricao: calculadora básica (soma, subtracao, multiplicacao e divisao)
+// entrada(s: parametros na linha de comandos (lc), sendo:
+// primeiro operando, operador e segundo operando, separados por espaco
+// saida(s): exibe os valores de entrada e o resultado da operação.
+// 
 
-Mateus Fernando			xxxxxx
-Vinicius Ponciano		xxxxxx
-Yitzhak Stone			478493
-
- */
-
-class EX_5_1 {
+class EX_5_2 {
     public static void main(String[] args) 
     {
         
-        System.out.println("xxxxxx\t\tMateus Fernando");
-        System.out.println("xxxxxx\t\tVinicius Ponciano");
+        System.out.println("484555\t\tMateus Fernando");
+        System.out.println("482955\t\tVinicius Ponciano");
         System.out.println("478493\t\tYitzhak Stone");
         System.out.println();
 

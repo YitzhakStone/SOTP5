@@ -1,16 +1,27 @@
-/*  
+//
+// nome do programa: EX_5_1.java
+//
+// programadores: nome dos alunos
+// Mateus Fernando          484555
+// Vinicius Ponciano        482955
+// Yitzhak Stone            478493
+// data: 30/04/2015
+// descricao:
+// programa pesquisa em um intervalo fechado de números inteiros
+// [MIN ... MAX] , ou seja, delimitado pelos valores inteiros MIN e MAX recebidos
+// através de parâmetros na linha de comando, e imprimir os números que são
+// simultaneamente ímpar, múltiplo de 7 e não múltiplo de 5. 
+// Exemplo (com: MIN = 2 e MAX = 10):
+// ENTRADA: EX_2_2.class 2 10
+// SAIDA: 7
+// 
 
-Mateus Fernando			xxxxxx
-Vinicius Ponciano		xxxxxx
-Yitzhak Stone			478493
-
- */
 class EX_5_1 {
     public static void main(String[] args) 
     {
         
-        System.out.println("xxxxxx\t\tMateus Fernando");
-        System.out.println("xxxxxx\t\tVinicius Ponciano");
+        System.out.println("484555\t\tMateus Fernando");
+        System.out.println("482955\t\tVinicius Ponciano");
         System.out.println("478493\t\tYitzhak Stone");
         System.out.println();
 

@@ -1,5 +1,16 @@
-using System;
-using System.Threading;
+//
+// nome do programa: EX_2_2.cs
+//
+// programadores: nome dos alunos
+// Mateus Fernando          484555
+// Vinicius Ponciano        482955
+// Yitzhak Stone            478493
+// data: 30/04/2015
+// descricao:
+// resolução do problema jantar dos filosofos usando monitor.
+// passar por parametro via linha de comando o numero de filosofos (maior que 2).
+// 
+
 
 class Hashis
 {
@@ -12,7 +23,7 @@ class Hashis
 
     public void Pegar(int l, int r)
     {
-        lock (this)
+        synchronized (this)
         {
             while (_hashis[l] || _hashis[r])
             {
@@ -24,7 +35,7 @@ class Hashis
     }
     public void Soltar(int l, int r)
     {
-        lock (this)
+        synchronized (this)
         {
             _hashis[l] = false;
             _hashis[r] = false;
@@ -71,23 +82,23 @@ class Filosofo
             {
 
                 Console.ForegroundColor = ConsoleColor.Gray;
-                Console.WriteLine("Filosofo " + n + " está pensando.");
+                System.out.println("Filosofo " + n + " está pensando.");
 
                 Thread.Sleep(_tempoPensar);
                 _hashis.Pegar(_l, _r);
 
                 Console.ForegroundColor = ConsoleColor.Red;
-                Console.WriteLine("Filosofo {0} está comendo.\t\t\tHashis {1} e {2} ocupados.", n, _l, _r);
+                System.out.println("Filosofo {0} está comendo.\t\t\tHashis {1} e {2} ocupados.", n, _l, _r);
                 Thread.Sleep(_tempoComer);
                 _hashis.Soltar(_l, _r);
 
                 Console.ForegroundColor = ConsoleColor.Blue;
-                Console.WriteLine("Filosofo {0} acabou de comer.\t\t\tHashis {1} e {2} liberados.", n, _l, _r);
+                System.out.println("Filosofo {0} acabou de comer.\t\t\tHashis {1} e {2} liberados.", n, _l, _r);
 
             }
             catch (Exception ex)
             {
-                Console.WriteLine("Exception: " + ex.Message);
+                System.out.println("Exception: " + ex.Message);
                 Console.ReadLine();
                 return;
             }
@@ -98,11 +109,20 @@ class Filosofo
 
 public class JantarMain
 {
-    public static void Main(string[] args)
+    public static void Main(String[] args)
     {
 
         int j = 0;
-        if (args.Length != 1 || !int.TryParse(args[0], out j) || j < 2) { return; }
+        //if (args.Length != 1 || !int.TryParse(args[0], out j) || j < 2) 
+        //{ 
+            //System.out.println("Parametro invalido. Passar inteiro > 2");
+            //return; 
+        //}
+        
+        System.out.println("{0}\t\t{1}", "484555", "Mateus Fernando");
+        System.out.println("{0}\t\t{1}", "482955", "Vinicius Ponciano");
+        System.out.println("{0}\t\t{1}", "478493", "Yitzhak Stone");
+
         Hashis h = new Hashis(j);
 
         Random r = new Random();

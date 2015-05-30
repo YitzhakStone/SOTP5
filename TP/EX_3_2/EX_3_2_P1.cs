@@ -1,48 +1,57 @@
-/*  
-
-Mateus Fernando			xxxxxx
-Vinicius Ponciano		xxxxxx
-Yitzhak Stone			478493
-
- */
+//
+// nome do programa: EX_3_1_P1.cs
+//
+// programadores: nome dos alunos
+// Mateus Fernando          484555
+// Vinicius Ponciano        482955
+// Yitzhak Stone            478493
+// data: 30/04/2015
+// descricao:
+// exibe na tela os parametros passados por linha de comando.
+// imprime os numeros inteiros de 1 a 400, colocando 10 em cada linha.
+// 
 
 using System;
 using System.Threading;
-class AplicacaoConsole
+
+namespace EX_3_2_P1
 {
-    static void Main(string[] args)
+    class AplicacaoConsole
     {
-
-        Console.WriteLine("{0}\t\t{1}", "xxxxxx", "Mateus Fernando");
-        Console.WriteLine("{0}\t\t{1}", "xxxxxx", "Vinicius Ponciano");
-        Console.WriteLine("{0}\t\t{1}", "478493", "Yitzhak Stone");
-
-        Console.WriteLine();
-
-        if ((args != null) && (args.Length > 0)) // Verifica se o array que recebe argumentos não é null nem vazio
+        static void Main(string[] args)
         {
-            Console.WriteLine("Parâmetros passados para aplicação");
-            for (int i = 0; i < args.Length; i++) // Percorre o array de argumentos
+
+            Console.WriteLine("{0}\t\t{1}", "xxxxxx", "Mateus Fernando");
+            Console.WriteLine("{0}\t\t{1}", "xxxxxx", "Vinicius Ponciano");
+            Console.WriteLine("{0}\t\t{1}", "478493", "Yitzhak Stone");
+
+            Console.WriteLine();
+
+            if ((args != null) && (args.Length > 0)) // Verifica se o array que recebe argumentos não é null nem vazio
             {
-                Console.WriteLine(args[i]); // imprime na tela os argumentos passados
+                Console.WriteLine("Parâmetros passados para aplicação");
+                for (int i = 0; i < args.Length; i++) // Percorre o array de argumentos
+                {
+                    Console.WriteLine(args[i]); // imprime na tela os argumentos passados
+                }
             }
-        }
-        else // Programa não recebeu argumentos
-        {
-            Console.WriteLine("Aplicação console não recebeu parâmetros");
-        }
-
-
-        for (int i = 1; i <= 400; i++) // Iteração que se repete 400 vezes
-        {
-
-            if (i % 10 == 0) // se a variavel i for multiplo de 10
+            else // Programa não recebeu argumentos
             {
-                Console.WriteLine(i); // imprime na tela e passa para a proxima linha
+                Console.WriteLine("Aplicação console não recebeu parâmetros");
             }
-            else // senão...
+
+
+            for (int i = 1; i <= 400; i++) // Iteração que se repete 400 vezes
             {
-                Console.Write(i + " "); // imprime i mais um espaço a direita
+
+                if (i % 10 == 0) // se a variavel i for multiplo de 10
+                {
+                    Console.WriteLine(i); // imprime na tela e passa para a proxima linha
+                }
+                else // senão...
+                {
+                    Console.Write(i + " "); // imprime i mais um espaço a direita
+                }
             }
         }
     }

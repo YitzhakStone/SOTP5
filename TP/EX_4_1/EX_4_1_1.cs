@@ -1,10 +1,15 @@
-/*  
-
-Mateus Fernando         xxxxxx
-Vinicius Ponciano       xxxxxx
-Yitzhak Stone           478493
-
- */
+//
+// nome do programa: EX_4_1_1.cs
+//
+// programadores: nome dos alunos
+// Mateus Fernando          484555
+// Vinicius Ponciano        482955
+// Yitzhak Stone            478493
+// data: 30/04/2015
+// descricao: programa inicia 3 threads simulando uma impressora
+// e não deixa as páginas das impressoes se misturarem, usando monitor
+// com lock.
+// 
 
 
 using System;
@@ -31,8 +36,8 @@ namespace lock1
         static void Main(string[] args)
         {
 
-            Console.WriteLine("{0}\t\t{1}", "xxxxxx", "Mateus Fernando");
-            Console.WriteLine("{0}\t\t{1}", "xxxxxx", "Vinicius Ponciano");
+            Console.WriteLine("{0}\t\t{1}", "484555", "Mateus Fernando");
+            Console.WriteLine("{0}\t\t{1}", "482955", "Vinicius Ponciano");
             Console.WriteLine("{0}\t\t{1}", "478493", "Yitzhak Stone");
 
             Console.WriteLine();
