@@ -1,3 +1,7 @@
+import java.util.Random;
+import java.util.Scanner;
+
+
 //
 // nome do programa: EX_2_2.cs
 //
@@ -11,14 +15,102 @@
 // passar por parametro via linha de comando o numero de filosofos (maior que 2).
 // 
 
+public class EX_6_4
+{
+    public static void main(String[] args)
+    {
+
+        
+/***************************/
+//java.io.InputStreamReader reader = new java.io.InputStreamReader(System.in); 
+//boolean b = false;
+//while(!b) 
+//{ 
+//    try{
+//        if ( reader.ready()) 
+//        { 
+//            // read a character and process it 
+//            System.out.println("entrou");
+//            b = true;
+//        } 
+//    }
+//    catch (java.io.IOException ioex)
+//    {
+//        System.out.println("excecao2");
+//    }
+// 
+//    // edit, lets not hog any cpu time 
+//    try 
+//    { 
+//        Thread.sleep(50); 
+//        System.out.println("ainda nao");
+//    } 
+//    catch (InterruptedException ex) 
+//    { 
+//        // can't do much about it can we? Ignoring  
+//        System.out.println("excecao2");
+//    } 
+//}
+/***************************/
+
+
+        int j;
+
+        if (args.length != 1)
+        {
+        	System.out.println("Parametro invalido. Passar inteiro > 2");
+        	return;
+        }
+
+		try  
+		{  
+		 	j = Integer.parseInt(args[0]);
+		 	if (j < 2)
+		 	{
+		 		System.out.println("Parametro invalido. Passar inteiro > 2");
+		  		return;
+		 	}
+		} 
+		catch(NumberFormatException nfe) 
+		{  
+		  System.out.println("Parametro invalido. Passar inteiro > 2");
+		  return;
+		}
+        
+        System.out.println("484555\t\tMateus Fernando");
+        System.out.println("482955\t\tVinicius Ponciano");
+        System.out.println("478493\t\tYitzhak Stone");
+        System.out.println("");
+
+        Hashis h = new Hashis(j);
+
+        Random r = new Random();
+
+        for(int i = 0; i < j; i++)
+        {
+
+            int pensar = (r.nextInt(3) + 1) * 1000;
+            int comer = (r.nextInt(3) + 1) * 1000;
+            int hashiFinal = i + 1;
+            
+            if(i + 1 == j)
+            {
+                hashiFinal = 0;
+            }
+
+            new Filosofo(i, pensar, comer, h, i, hashiFinal).start();
+        }
+
+    }
+}
 
 class Hashis
 {
-    private bool[] _hashis;
+    private boolean[] _hashis;
 
     public Hashis(int i)
     {
-        _hashis = new bool[i];
+        _hashis = new boolean[i];
     }
 
     public void Pegar(int l, int r)
@@ -27,10 +119,14 @@ class Hashis
         {
             while (_hashis[l] || _hashis[r])
             {
-                Monitor.Wait(this);
+                try {
+                    this.wait();
+                    _hashis[l] = true;
+                    _hashis[r] = true;
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
             }
-            _hashis[l] = true;
-            _hashis[r] = true;
         }
     }
     public void Soltar(int l, int r)
@@ -39,13 +135,14 @@ class Hashis
         {
             _hashis[l] = false;
             _hashis[r] = false;
-            Monitor.PulseAll(this);
+            this.notifyAll();
         }
     }
 
 }
 
-class Filosofo
+
+class Filosofo extends Thread
 {
     int n;
     int _tempoPensar;
@@ -62,7 +159,6 @@ class Filosofo
         this._hashis = hashis;
         this._l = n == 0 ? 4 : n - 1;
         this._r = (n + 1) % 5;
-        new Thread(new ThreadStart(Run)).Start();
     }
     public Filosofo(int n, int _tempoPensar, int _tempoComer, Hashis hashis, int l, int r)
     {
@@ -72,75 +168,35 @@ class Filosofo
         this._hashis = hashis;
         this._l = l;
         this._r = r;
-        new Thread(new ThreadStart(Run)).Start();
     }
-    public void Run()
+    public void run()
     {
         while (true)
         {
             try
             {
 
-                Console.ForegroundColor = ConsoleColor.Gray;
-                System.out.println("Filosofo " + n + " está pensando.");
+                //Console.ForegroundColor = ConsoleColor.Gray;
+                System.out.println("Filosofo " + n + " esta pensando.");
 
-                Thread.Sleep(_tempoPensar);
+                Thread.sleep(_tempoPensar);
                 _hashis.Pegar(_l, _r);
 
-                Console.ForegroundColor = ConsoleColor.Red;
-                System.out.println("Filosofo {0} está comendo.\t\t\tHashis {1} e {2} ocupados.", n, _l, _r);
-                Thread.Sleep(_tempoComer);
+                //Console.ForegroundColor = ConsoleColor.Red;
+                System.out.println("Filosofo " + n + " esta comendo.\t\t\tHashis " + _l + " e " + _r + " ocupados.");
+                Thread.sleep(_tempoComer);
                 _hashis.Soltar(_l, _r);
 
-                Console.ForegroundColor = ConsoleColor.Blue;
-                System.out.println("Filosofo {0} acabou de comer.\t\t\tHashis {1} e {2} liberados.", n, _l, _r);
+                //Console.ForegroundColor = ConsoleColor.Blue;
+                System.out.println("Filosofo " + n + " acabou de comer.\t\t\tHashis " + _l + " e " + _r + " liberados.");
 
             }
             catch (Exception ex)
             {
-                System.out.println("Exception: " + ex.Message);
-                Console.ReadLine();
+                System.out.println("Exception: " + ex.getMessage());
                 return;
             }
         }
     }
 
-}
-
-public class JantarMain
-{
-    public static void Main(String[] args)
-    {
-
-        int j = 0;
-        //if (args.Length != 1 || !int.TryParse(args[0], out j) || j < 2) 
-        //{ 
-            //System.out.println("Parametro invalido. Passar inteiro > 2");
-            //return; 
-        //}
-        
-        System.out.println("{0}\t\t{1}", "484555", "Mateus Fernando");
-        System.out.println("{0}\t\t{1}", "482955", "Vinicius Ponciano");
-        System.out.println("{0}\t\t{1}", "478493", "Yitzhak Stone");
-
-        Hashis h = new Hashis(j);
-
-        Random r = new Random();
-
-        for(int i = 0; i < j; i++)
-        {
-
-            int pensar = r.Next(1, 3) * 1000;
-            int comer = r.Next(1, 3) * 1000;
-            int hashiFinal = i + 1;
-            
-            if(i + 1 == j)
-            {
-                hashiFinal = 0;
-            }
-
-            new Filosofo(i, pensar, comer, h, i, hashiFinal);
-        }
-
-    }
 }
